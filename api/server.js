@@ -34,8 +34,8 @@ app.post("/api/create-checkout-session", async (req, res) => {
       payment_method_types: ['card'],
       mode: 'payment',
       line_items: lineItems,
-      success_url: 'https://project-complet.vercel.app//success.html',
-      cancel_url: 'https://project-complet.vercel.app//cancel.html',
+      success_url: 'https://project-complet.vercel.app/success.html',
+      cancel_url: 'https://project-complet.vercel.app/cancel.html',
     });
 
     res.json({ id: session.id });
@@ -45,4 +45,6 @@ app.post("/api/create-checkout-session", async (req, res) => {
   }
 });
 
-module.exports = app;
+app.listen(PORT, () => {
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
+});
